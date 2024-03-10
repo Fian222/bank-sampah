@@ -12,6 +12,11 @@ class SuperAdminController extends Controller
         return view("admin/dashboard");
     }
 
+    public function data_nasabah()
+    {
+        return view('admin/data_nasabah');
+    }
+
     public function tambah_nasabah()
     {
         return view("admin/tambah_nasabah");
@@ -25,6 +30,11 @@ class SuperAdminController extends Controller
     public function hapus_nasabah()
     {
         return view("admin/hapus_nasabah");
+    }
+
+    public function data_sampah()
+    {
+        return view('admin/data_sampah');
     }
 
     public function tambah_sampah()
@@ -96,7 +106,4 @@ class SuperAdminController extends Controller
         return view('admin/laporan_akhir');
     }
 
-    public function grafik_monitoring(){
-        return view('admin/grafik_monitoring');
-    }
 }
