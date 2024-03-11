@@ -5,27 +5,6 @@
 <h2 class="active" style="font-size: 30px;">Data Administrator</h2>
 <br>
 
-<div class="row">
-    <div class="d-flex justify-content-between">
-      <!-- Bagian "Show Entries" di kiri -->
-      <div>
-        <label for="entries">Show Entries:</label>
-        <select id="entries" onchange="changeEntries()">
-          <option value="10">10</option>
-          <option value="25">25</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
-        </select>
-      </div>
-      <!-- Bagian "Search" di kanan -->
-      <div>
-        <label for="search">Search:</label>
-        <input type="text" id="search" name="search" placeholder="Type your search query..." />
-        <button onclick="performSearch()">Search</button>
-      </div>
-    </div>
-  </div>
-
   <style>
   table {
   border-collapse: collapse;
@@ -81,64 +60,109 @@ tr:nth-child(even) {
   }
 }
   </style>
-<table id="example" class="display" cellspacing="0" width="100%" border="0" >
-    <thead>
-    <tr>
-        <th>No</th>
-        <th>Id_User</th>
-        <th>Nama Admin</th>
-        <th>Nomor Telepon</th>
-        <th>E-mail</th>
-        <th>Level</th>
-        <th>Aksi</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>123</td>
-            <td>John Doe</td>
-            <td>123-456-7890</td>
-            <td>john.doe@example.com</td>
-            <td>Admin</td>
-            <td><button>Edit</button> <button>Delete</button></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>456</td>
-            <td>Jane Doe</td>
-            <td>987-654-3210</td>
-            <td>jane.doe@example.com</td>
-            <td>User</td>
-            <td><button>Edit</button> <button>Delete</button></td>
-        </tr>
-        <!-- Add more rows as needed -->
-    </tbody>
-</table>
-    <a href="#">
-    <button><i class="fa fa-plus" aria-hidden="true"></i>Tambah</button>
-    </a>
 
     <style>
-        .button-container {
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px; /* Jarak antara tombol */
-            margin-right: 10px; /* Jarak dari tepi kanan */
+
+.btn-container {
+            text-align: right;
+            margin-left: auto; /* Posisikan ke kanan */
         }
+        #search {
+    margin-bottom: 5px;
+    float: right;
+        }
+
+    #search input {
+    width: 300px;
+}
+.row {
+    width: 100%;
+}
+
     </style>
-<div class="button-container">
-            <button onclick="previousPage()">Previous</button>
-            <button onclick="nextPage()">Next</button>
+
+<div class="mb-3"></div>
+<div class="row">
+<div class="col">
+    <div class="card shadow">
+        <div class="card-body">
+
+            <div class="row">
+                <div class="d-flex justify-content-between">
+                  <!-- Bagian "Show Entries" di kiri -->
+                  <div>
+                    <label for="entries">Show Entries:</label>
+                    <select id="entries" onchange="changeEntries()">
+                      <option value="10">10</option>
+                      <option value="25">25</option>
+                      <option value="50">50</option>
+                      <option value="100">100</option>
+                    </select>
+                  </div>
+                  <!-- Bagian "Search" di kanan -->
+                  <div>
+                    <label for="search">Search:</label>
+                    <input type="text" id="search" name="search" placeholder="Type your search query..." />
+                  </div>
+                </div>
+              </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>No</th>
+                            <th>Id_User</th>
+                            <th>Nama Admin</th>
+                            <th>Nomor Telepon</th>
+                            <th>E-mail</th>
+                            <th>Level</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>123</td>
+                                <td>John Doe</td>
+                                <td>123-456-7890</td>
+                                <td>john.doe@example.com</td>
+                                <td>Admin</td>
+                                <td> <a href="#" class="btn btn-warning btn-sm"> <i class="fas fa-edit"></i> </a>
+                                    <a href="#" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i> </a>
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>456</td>
+                                <td>Jane Doe</td>
+                                <td>987-654-3210</td>
+                                <td>jane.doe@example.com</td>
+                                <td>User</td>
+                    <td> <a href="#" class="btn btn-warning btn-sm"> <i class="fas fa-edit"></i> </a>
+                    <a href="#" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i> </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row" >
+            <div class="d-flex justify-content-between">
+            <div>
+            <a href="#">
+            <button><i class="fa fa-plus" aria-hidden="true"></i>Tambah</button>
+            </a>
+        </div>
+        <div>
+            <div class="btn-container">
+                <button class="btn btn-previous">Previous</button>
+                <button><a class="paginate_button current" aria-controls="example" data-dt-idx="1" tabindex="0">1</a></button>
+                <button class="btn btn-next">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
 </div>
 @endsection
 
-@section('script')
-    <script type="text/javascript" src="vendor/datatables/js/jquery.min.js"></script>
-    <script type="text/javascript" src="vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function() {
-           $('#example').DataTable();
-        } );
-    </script>
-@endsection

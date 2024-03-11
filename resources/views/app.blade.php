@@ -170,15 +170,32 @@
     @yield('content')
 </div>
 
-            <footer>
-    <div class="footer clearfix mb-0 text-muted">
-        <div class="float-start">
-            <p>2024 &copy; KepaEcoBank</p>
+<style>
+footer {
+    position:bottom;
+    width: 100%;  /* Lebar penuh website */
+    padding: 10px;  /* contoh padding */
+    margin: -10px;
+    min-height: 50px;  /* Tinggi minimum footer (sesuaikan) */
+  }
+
+
+footer {
+  width: 100%;  /* Lebar penuh untuk footer */
+}
+
+  </style>
+
+<footer class="sticky-footer">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright © KepaEcoBank 2024</span>
         </div>
     </div>
 </footer>
-        </div>
+
     </div>
+</div>
 
     <script src="assets/static/js/components/dark.js"></script>
     <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
@@ -207,7 +224,7 @@
 <script src="resources/js/demo/chart-area-demo.js"></script>
 <script src="resources/js/demo/chart-pie-demo.js"></script>
 <script src="resources/js/demo/chart-bar-demo.js"></script>
-
+@yield('script')
 </body>
 
 </html>

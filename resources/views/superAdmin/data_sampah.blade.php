@@ -4,28 +4,8 @@
 
 <h2 class="active" style="font-size: 30px;">Data Sampah</h2>
     <br>
-    <div class="row">
-        <div class="d-flex justify-content-between">
-          <!-- Bagian "Show Entries" di kiri -->
-          <div>
-            <label for="entries">Show Entries:</label>
-            <select id="entries" onchange="changeEntries()">
-              <option value="10">10</option>
-              <option value="25">25</option>
-              <option value="50">50</option>
-              <option value="100">100</option>
-            </select>
-          </div>
-          <!-- Bagian "Search" di kanan -->
-          <div>
-            <label for="search">Search:</label>
-            <input type="text" id="search" name="search" placeholder="Type your search query..." />
-            <button onclick="performSearch()">Search</button>
-          </div>
-        </div>
-      </div>
 
-      <style>
+    <style>
         table {
         border-collapse: collapse;
         width: 100%;
@@ -81,67 +61,107 @@
       }
         </style>
 
-    <table id="example" class="display" cellspacing="0" width="100%" border="0">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Jenis Sampah</th>
-                <th>Satuan</th>
-                <th>Harga</th>
-                <th>Gambar</th>
-                <th>Deskripsi</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Kardus</td>
-                <td>KG</td>
-                <td>5000</td>
-                <td><img src="https://down-id.img.susercontent.com/file/d41d0ab1c03c710ae114912cf4297f74" width="60px" height="60px"></td>
-                <td>Semua Jenis Kardus</td>
-                <td><button>Edit</button> <button>Delete</button></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Botol</td>
-                <td>KG</td>
-                <td>3000</td>
-                <td><img src="https://st4.depositphotos.com/1971587/25483/i/1600/depositphotos_254834222-stock-photo-new-unused-blue-empty-plastic.jpg" width="60px" height="60px"></td>
-                <td>Botol Tanpa Tutup</td>
-                <td><button>Edit</button> <button>Delete</button></td>
-            </tr>
-            <!-- Add more rows as needed -->
-        </tbody>
+          <style>
 
-</table>
+      .btn-container {
+                  text-align: right;
+                  margin-left: auto; /* Posisikan ke kanan */
+              }
+              #search {
+          margin-bottom: 5px;
+          float: right;
+              }
 
-             <a href="admin.php?page=tambah-data-sampah">
-             <button><i class="fa fa-plus" aria-hidden="true"></i>Tambah</button>
-             </a>
+          #search input {
+          width: 300px;
+      }
+      .row {
+          width: 100%;
+      }
 
-             <style>
-                .button-container {
-                    display: flex;
-                    justify-content: flex-end;
-                    gap: 10px; /* Jarak antara tombol */
-                    margin-right: 10px; /* Jarak dari tepi kanan */
-                }
-            </style>
-        <div class="button-container">
-                    <button onclick="previousPage()">Previous</button>
-                    <button onclick="nextPage()">Next</button>
-        </div>
+          </style>
 
-@endsection
+      <div class="mb-3"></div>
+      <div class="row">
+      <div class="col">
+          <div class="card shadow">
+              <div class="card-body">
 
-@section('script')
-    <script type="text/javascript" src="vendor/datatables/js/jquery.min.js"></script>
-    <script type="text/javascript" src="vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable();
-        });
-    </script>
-@endsection
+                  <div class="row">
+                      <div class="d-flex justify-content-between">
+                        <!-- Bagian "Show Entries" di kiri -->
+                        <div>
+                          <label for="entries">Show Entries:</label>
+                          <select id="entries" onchange="changeEntries()">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                          </select>
+                        </div>
+                        <!-- Bagian "Search" di kanan -->
+                        <div>
+                          <label for="search">Search:</label>
+                          <input type="text" id="search" name="search" placeholder="Type your search query..." />
+                        </div>
+                      </div>
+                    </div>
+
+                  <div class="table-responsive">
+                      <table class="table table-bordered">
+                          <thead class="table-secondary">
+                              <tr>
+                                  <th>No</th>
+                                  <th>Jenis Sampah</th>
+                                  <th>Satuan</th>
+                                  <th>Harga</th>
+                                  <th>Gambar</th>
+                                  <th>Deskripsi</th>
+                                  <th>Aksi</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                                  <tr>
+                                      <td>1</td>
+                                      <td>Kardus</td>
+                                      <td>KG</td>
+                                      <td>5000</td>
+                                     <td><img src="https://down-id.img.susercontent.com/file/d41d0ab1c03c710ae114912cf4297f74"width="60px"height="60px"></td>
+                                      <td>Semua Jenis Kardus</td>
+                                      <td> <a href="#" class="btn btn-warning btn-sm"> <i class="fas fa-edit"></i> </a>
+                                          <a href="#" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i> </a>
+                                          </td>
+                                  </tr>
+                                  <tr>
+                                      <td>2</td>
+                                      <td>Botol</td>
+                                      <td>KG</td>
+                                      <td>3000</td>
+                                      <td><img src="https://st4.depositphotos.com/1971587/25483/i/1600/depositphotos_254834222-stock-photo-new-unused-blue-empty-plastic.jpg" width="60px" height="60px"></td>
+                                      <td>Botol Tanpa Tutup</td>
+                          <td> <a href="#" class="btn btn-warning btn-sm"> <i class="fas fa-edit"></i> </a>
+                          <a href="#" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i> </a>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+              <div class="row" >
+                  <div class="d-flex justify-content-between">
+                  <div>
+                  <a href="#">
+                  <button><i class="fa fa-plus" aria-hidden="true"></i>Tambah</button>
+                  </a>
+              </div>
+              <div>
+                  <div class="btn-container">
+                      <button class="btn btn-previous">Previous</button>
+                      <button><a class="paginate_button current" aria-controls="example" data-dt-idx="1" tabindex="0">1</a></button>
+                      <button class="btn btn-next">Next</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      @endsection

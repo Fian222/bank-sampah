@@ -3,80 +3,20 @@
 @section('content')
     <h2 class="active" style="font-size: 30px;">Laporan Beli Sampah</h2>
 
-    <style>
-     .card {
-  background-color: #86A789;
-  border-radius: 10px; /* Adjust for desired corner roundness */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Optional shadow effect */
-  margin: 50px;
-  width: 300px; /* Adjust for card width */
-  display: flex; /* Arranges content vertically */
-  flex-direction: column; /* Stacks content on top of each other */
-}
+    <form action="#" method="post" name="form10" target="_self">
+        <div class="row">
+          <div class="col-lg-3">
+            <input name="txtTglAwal" type="date" class="form-control"  size="10" />
+          </div>
+          <div class="col-lg-3">
+           <input name="txtTglAkhir" type="date" class="form-control"  size="10" />
+          </div>
 
-.card-container {
-    display: flex;
-    justify-content: flex-end; /* Aligns the cards to the right */
-}
-
-.card {
-    float: right;
-    margin-left: 20px; /* Adjust margin for spacing */
-}
-
-.card-image {
-  /* Adjust width and height for your image */
-  width: 100%;
-  height: 200px;
-  border-radius: 10px 10px 0 0; /* Rounded top corners */
-}
-
-.card-content {
-  padding: 20px;
-  flex: 1; /* Fills remaining space */
-}
-
-.card-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.card-description {
-  font-size: 16px;
-  color: #777;
-}
-</style>
-
-<div class="card">
-    <div class="card-content">
-        <form action="/search/year" method="get">
-            <label for="year">Search by Year:</label>
-            <input type="number" id="year" name="year">
-            <button type="submit">Search</button>
-          </form>
-    </div>
-  </div>
-
-      <div class="card">
-        <div class="card-content">
-            <form action="/search/month" method="get">
-                <label for="month">Search by Month:</label>
-                <input type="month" id="month" name="month">
-                <button type="submit">Search</button>
-              </form>
+          <div class="col-lg-3">
+          <input name="btnTampil" class="btn btn-success" type="submit" value="Tampilkan" />
+          </div>
         </div>
-      </div>
-
-      <div class="card">
-        <div class="card-content">
-            <form action="/search/date" method="get">
-                <label for="date">Search by Date:</label>
-                <input type="date" id="date" name="date">
-                <button type="submit">Search</button>
-              </form>
-        </div>
-      </div>
+        </form>
 
       <style>
         table {
@@ -134,44 +74,102 @@
       }
         </style>
 
-	<table id="example" class="display" cellspacing="0" width="100%" border="0" >
-        <thead>
-        <tr>
-            <th>No</th>
-            <th>Tanggal Jual</th>
-            <th>RW</th>
-            <th>Jenis Sampah</th>
-            <th>Banyak</th>
-            <th>Harga Satuan</th>
-            <th>Total</th>
-        </tr>
-        </thead>
+          <style>
 
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>10/03/2024</td>
-                <td>1</td>
-                <td>Kardus</td>
-                <td>5Kg</td>
-                <td>5000</td>
-                <td>25000</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>10/03/2024</td>
-                <td>2</td>
-                <td>Botol</td>
-                <td>5Kg</td>
-                <td>3000</td>
-                <td>15000</td>
-            </tr>
-        </tbody>
+      .btn-container {
+                  text-align: right;
+                  margin-left: auto; /* Posisikan ke kanan */
+              }
+              #search {
+          margin-bottom: 5px;
+          float: right;
+              }
 
-        <tbody>
-    </table>
+          #search input {
+          width: 300px;
+      }
+      .row {
+          width: 100%;
+      }
 
-    <a href="#">
-        <button><i class="fa fa-print" aria-hidden="true"></i>Cetak</button>
-    </a>
-@endsection
+          </style>
+
+      <div class="mb-3"></div>
+      <div class="row">
+      <div class="col">
+          <div class="card shadow">
+              <div class="card-body">
+
+                  <div class="row">
+                      <div class="d-flex justify-content-between">
+                        <!-- Bagian "Show Entries" di kiri -->
+                        <div>
+                          <label for="entries">Show Entries:</label>
+                          <select id="entries" onchange="changeEntries()">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                          </select>
+                        </div>
+                        <!-- Bagian "Search" di kanan -->
+                        <div>
+                          <label for="search">Search:</label>
+                          <input type="text" id="search" name="search" placeholder="Type your search query..." />
+                        </div>
+                      </div>
+                    </div>
+
+                  <div class="table-responsive">
+                      <table class="table table-bordered">
+                          <thead class="table-secondary">
+                              <tr>
+                                  <th>No</th>
+                                  <th>Tanggal Beli</th>
+                                  <th>RW</th>
+                                  <th>Jenis Sampah</th>
+                                  <th>Banyak</th>
+                                  <th>Harga Satuan</th>
+                                  <th>Total</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                                  <tr>
+                                      <td>1</td>
+                                      <td>11/03/2024</td>
+                                      <td>1</td>
+                                      <td>Kardus</td>
+                                      <td>5Kg</td>
+                                      <td>5000</td>
+                                      <td>25000</td>
+                                  </tr>
+                                  <tr>
+                                      <td>2</td>
+                                      <td>11/03/2024</td>
+                                      <td>2</td>
+                                      <td>Botol</td>
+                                      <td>5Kg</td>
+                                      <td>3000</td>
+                                      <td>15000</td>
+                      </tr>
+                  </tbody>
+              </table>
+              <div class="row" >
+                  <div class="d-flex justify-content-between">
+                  <div>
+                    <a href="#" class="btn btn-primary">Cetak Laporan</a>
+              </div>
+              <div>
+                  <div class="btn-container">
+                      <button class="btn btn-previous">Previous</button>
+                      <button><a class="paginate_button current" aria-controls="example" data-dt-idx="1" tabindex="0">1</a></button>
+                      <button class="btn btn-next">Next</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      @endsection
+
