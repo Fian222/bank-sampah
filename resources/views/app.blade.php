@@ -25,13 +25,26 @@
 
 <body>
     <script src="assets/static/js/initTheme.js"></script>
+
+    <style>
+    .sidebar-desktop{
+        background-color: #D2E3C8
+
+    }
+
+    /* * {
+        border: 1px solid red
+    } */
+
+    </style>
+
     <div id="app">
         <div id="sidebar">
             <div class="sidebar-wrapper active">
     <div class="sidebar-header position-relative">
         <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-                <a href="index.html"><img src="./assets/compiled/svg/logo.svg" alt="Logo" srcset=""></a>
+                <a href="#"><img src="./assets/compiled/png/logoterbaru1.png" alt="Logo" srcset="" style="height: 45px; width: 45px;"></a>
             </div>
             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -71,7 +84,7 @@
             <li class="sidebar-title">Menu</li>
 
             <li
-                class="sidebar-item">
+                class="sidebar-item active">
                 <a href="/dashboard" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
@@ -159,16 +172,21 @@
 
 </div>
         </div>
+
         <div id="main">
-            <header class="mb-3">
-                <a href="#" class="burger-btn d-block d-xl-none">
-                    <i class="bi bi-justify fs-3"></i>
-                </a>
-            </header>
+            <div class="page-heading">
+
+                </div>
+                <header class="mb-3">
+                    <a href="#" class="burger-btn d-block d-xl-none">
+                        <i class="bi bi-justify fs-3"></i>
+                    </a>
+                </header>
 
 <div class="page-content">
     @yield('content')
 </div>
+
 
 <style>
 footer {
@@ -219,6 +237,43 @@ footer {
 
 <!-- Page level plugins -->
 <script src="resources/js/chart.js/Chart.min.js"></script>
+
+<script>
+
+// Ambil semua elemen dengan kelas sidebar-item
+const sidebarItems = document.querySelectorAll('.sidebar-item');
+
+// Loop melalui setiap elemen sidebar-item
+sidebarItems.forEach(item => {
+    // Tambahkan event listener untuk menangkap saat elemen ditekan
+    item.addEventListener('click', function() {
+        // Hapus kelas 'active' dari semua elemen sidebar-item yang ada
+        sidebarItems.forEach(item => {
+            item.classList.remove('active');
+        });
+
+        // Tambahkan kelas 'active' ke elemen yang ditekan
+        this.classList.add('active');
+    });
+});
+
+// Ambil semua elemen dengan kelas sidebar-item yang memiliki submenu (has-sub)
+const sidebarItemsWithSub = document.querySelectorAll('.sidebar-item.has-sub');
+
+// Loop melalui setiap elemen sidebar-item yang memiliki submenu (has-sub)
+sidebarItemsWithSub.forEach(item => {
+    // Tambahkan event listener untuk menangkap saat elemen ditekan
+    item.addEventListener('click', function() {
+        // Hapus kelas 'active' dari semua elemen sidebar-item yang memiliki submenu (has-sub) yang ada
+        sidebarItemsWithSub.forEach(item => {
+            item.classList.remove('active');
+        });
+
+        // Tambahkan kelas 'active' ke elemen yang ditekan
+        this.classList.add('active');
+    });
+});
+</script>
 
 <!-- Page level custom scripts -->
 <script src="resources/js/demo/chart-area-demo.js"></script>

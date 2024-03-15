@@ -1,84 +1,25 @@
 @extends('app')
 
 @section('content')
-<h2 class="active" style="font-size: 30px;">Transaksi Beli Sampah</h2>
+<h2 style="font-size: 30px;">Transaksi Beli Sampah</h2>
 	<br>
 
-    <style>
-        table {
-        border-collapse: collapse;
-        width: 100%;
-      }
+    <form action="#" method="post" name="form10" target="_self">
+        <div class="row">
+          <div class="col-lg-3">
+            <input name="txtTglAwal" type="date" class="form-control"  size="10" />
+          </div>
+          <div class="col-lg-3">
+           <input name="txtTglAkhir" type="date" class="form-control"  size="10" />
+          </div>
 
-      th, td {
-        border: 1px solid; /* warna awal garis */
-        padding: 8px;
-      }
+          <div class="col-lg-3">
+            <input name="btnTampil" style="background-color: #4F6F52; color: white;" class="btn" type="submit" value="Tampilkan" />
+        </div>
+        </div>
+        </form>
 
-      th {
-        text-align: left;
-      }
-
-      tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
-
-      .search-bar {
-        width: 200px;
-        padding: 5px;
-        margin-bottom: 10px;
-      }
-
-      .pagination {
-        text-align: center;
-      }
-
-      .pagination a {
-        padding: 5px;
-        border: 1px solid #ddd;
-        margin-right: 5px;
-      }
-
-      .pagination a:hover {
-        background-color: #ddd;
-      }
-
-      .pagination a.active {
-        background-color: #000;
-        color: #fff;
-      }
-
-      /* Menyesuaikan warna garis berdasarkan mode gelap */
-      @media (prefers-color-scheme: dark) {
-        table {
-          background-color: #D2E3C8; /* warna background untuk dark mode */
-        }
-
-        th, td {
-          border-color: #fff; /* warna garis untuk dark mode */
-        }
-      }
-        </style>
-
-          <style>
-
-      .btn-container {
-                  text-align: right;
-                  margin-left: auto; /* Posisikan ke kanan */
-              }
-              #search {
-          margin-bottom: 5px;
-          float: right;
-              }
-
-          #search input {
-          width: 300px;
-      }
-      .row {
-          width: 100%;
-      }
-
-          </style>
+    <link rel="stylesheet" href="./assets/compiled/css/all.view.css">
 
       <div class="mb-3"></div>
       <div class="row">
@@ -99,9 +40,9 @@
                           </select>
                         </div>
                         <!-- Bagian "Search" di kanan -->
-                        <div>
-                          <label for="search">Search:</label>
-                          <input type="text" id="search" name="search" placeholder="Type your search query..." />
+                        <div class="search-container">
+                            <input type="text" id="searchBar" placeholder="Search..." oninput="toggleClearButton()">
+                            <button class="clear-button" onclick="clearSearchBar()">X</button>
                         </div>
                       </div>
                     </div>
@@ -153,23 +94,44 @@
                       </tr>
                   </tbody>
               </table>
-              <div class="row" >
-                  <div class="d-flex justify-content-between">
-                  <div>
-                  <a href="#">
-                  <button><i class="fa fa-plus" aria-hidden="true"></i>Tambah</button>
-                  </a>
-              </div>
-              <div>
-                  <div class="btn-container">
-                      <button class="btn btn-previous">Previous</button>
-                      <button><a class="paginate_button current" aria-controls="example" data-dt-idx="1" tabindex="0">1</a></button>
-                      <button class="btn btn-next">Next</button>
-                  </div>
-              </div>
-          </div>
+
+            <div>
+              <div class="row">
+                <div class="d-flex justify-content-between">
+                    <div class="dataTables_info" id="example_info" role="status" aria-live="polite">Showing 1 to 1 of 1 entries
+                    </div>
+                      <div class="btn-container">
+                        <button class="btn btn-previous">Previous</button>
+                        <button style="background-color: #4F6F52; border: none; border-radius: 5px;"><a class="paginate_button current" aria-controls="example" style="color: white; data-dt-idx="1" tabindex="0">1</a></button>
+                        <button class="btn btn-next">Next</button>
+                      </div>
+                </div>
+            </div>
+                <div class="d-flex justify-content-between">
+                    <a href="#" style= "background-color: #4F6F52; "class="btn">
+                        <i class="fa-solid fa-cart-plus" style="color: white; margin-right: 5px;"></i>
+                        <span style="color: white;">Tambah</span>
+                    </a>
+                </div>
+           </div>
+         </div>
       </div>
-      </div>
-      </div>
-      </div>
-      @endsection
+</div>
+@endsection
+
+@section('script')
+
+<script>
+function toggleClearButton() {
+    var searchBar = document.getElementById("searchBar");
+    var clearButton = document.querySelector(".clear-button");
+    clearButton.style.display = searchBar.value ? "block" : "none";
+}
+
+function clearSearchBar() {
+    var searchBar = document.getElementById("searchBar");
+    searchBar.value = "";
+    toggleClearButton();
+}
+</script>
+@endsection
