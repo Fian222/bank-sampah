@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Super Admin Dashboard</title>
 
+    <link rel="stylesheet" href="./assets/compiled/css/all.view.css">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
     <link rel="shortcut icon" href="./assets/compiled/svg/favicon.svg" type="image/x-icon">
@@ -25,18 +27,6 @@
 
 <body>
     <script src="assets/static/js/initTheme.js"></script>
-
-    <style>
-    .sidebar-desktop{
-        background-color: #D2E3C8
-
-    }
-
-    /* * {
-        border: 1px solid red
-    } */
-
-    </style>
 
     <div id="app">
         <div id="sidebar">
@@ -101,7 +91,7 @@
                 <ul class="submenu">
 
                     <li class="submenu-item">
-                        <a href="{{route ('data_admin')}}" class="submenu-link">Data Admin</a>
+                        <a href="{{route ('data_admin')}}" class="submenu-link">Data User</a>
 
                     </li>
 
@@ -186,23 +176,6 @@
 <div class="page-content">
     @yield('content')
 </div>
-
-
-<style>
-footer {
-    position:bottom;
-    width: 100%;  /* Lebar penuh website */
-    padding: 10px;  /* contoh padding */
-    margin: -10px;
-    min-height: 50px;  /* Tinggi minimum footer (sesuaikan) */
-  }
-
-
-footer {
-  width: 100%;  /* Lebar penuh untuk footer */
-}
-
-  </style>
 
 <footer class="sticky-footer">
     <div class="container my-auto">

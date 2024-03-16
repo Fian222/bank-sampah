@@ -37,7 +37,7 @@
                           <thead class="table-secondary">
                               <tr>
                                   <th>No</th>
-                                  <th>Id_User</th>
+                                  <th>Id_Nasabah</th>
                                   <th>Nama</th>
                                   <th>RW</th>
                                   <th>Telepon</th>

@@ -5,12 +5,14 @@
     <!-- Begin Page Content -->
     <section class="section">
 
+        <link rel="stylesheet" href="./assets/compiled/css/all.view.css">
+
         <!-- Page Heading -->
         <div class="main">
         <div class="page-heading">
         <div class="row">
         <div class="d-flex align-items-center justify-content-between ">
-            <h1 class="h3 mb-0 col-4 col-md-2 text-gray-800">Dashboard</h1>
+            <h2 style="font-size: 30px" class="h2 mb-0 col-4 col-md-2 text-gray-800">Dashboard</h2>
             <div class="col-8 col-xl-10 col-lg-9 col-md-8 col-sm-9 d-flex align-items-center justify-content-end">
                 <div class="dropdown">
                     <a href="#" id="topbarUserDropdown" class="user-dropdown d-flex align-items-center dropend dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,7 +46,6 @@
    </div>
 </div>
 <div class="row">
-
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body d-grid" style="width: 100%">

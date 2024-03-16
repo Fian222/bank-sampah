@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2 style="font-size: 30px;">Data Administrator</h2>
+<h2 style="font-size: 30px;">Data User</h2>
 <br>
 
 <link rel="stylesheet" href="./assets/compiled/css/all.view.css">
@@ -13,7 +13,7 @@
     <div class="card shadow">
         <div class="card-body">
 
-            <div class="row">
+            <div class="row" >
                 <div class="d-flex justify-content-between">
                   <!-- Bagian "Show Entries" di kiri -->
                   <div>
@@ -39,7 +39,7 @@
                         <tr>
                             <th>No</th>
                             <th>Id_User</th>
-                            <th>Nama Admin</th>
+                            <th>Nama User</th>
                             <th>Nomor Telepon</th>
                             <th>E-mail</th>
                             <th>Level</th>
@@ -54,9 +54,11 @@
                                 <td>123-456-7890</td>
                                 <td>john.doe@example.com</td>
                                 <td>Admin</td>
-                                <td> <a href="#" class="btn btn-warning btn-sm"> <i class="fas fa-edit"></i> </a>
+                                <td style="text-align: center;">
+                                    <a href="#" class="btn btn-warning btn-sm"> <i class="fas fa-edit"></i> </a>
                                     <a href="#" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i> </a>
-                                    </td>
+                                    <a href="#" class="btn btn-success btn-sm"><i class="fa-solid fa-key"></i></a>
+                                </td>
                             </tr>
                             <tr>
                                 <td>2</td>
@@ -64,9 +66,11 @@
                                 <td>Jane Doe</td>
                                 <td>987-654-3210</td>
                                 <td>jane.doe@example.com</td>
-                                <td>User</td>
-                    <td> <a href="#" class="btn btn-warning btn-sm"> <i class="fas fa-edit"></i> </a>
+                                <td>Lurah</td>
+                    <td style="text-align: center;">
+                    <a href="#" class="btn btn-warning btn-sm"> <i class="fas fa-edit"></i> </a>
                     <a href="#" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i> </a>
+                    <a href="#" class="btn btn-success btn-sm"><i class="fa-solid fa-key"></i></a>
                     </td>
                 </tr>
             </tbody>
