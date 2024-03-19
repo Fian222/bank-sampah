@@ -1,0 +1,181 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+h2 {
+    font-family: sans-serif;
+}
+
+th,
+td {
+    border: 1px solid;
+    /* warna awal garis */
+    padding: 8px;
+    border-color: #fff;
+    /* warna garis untuk dark mode */
+    text-align: center;
+
+}
+
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.pagination {
+    text-align: center;
+    margin-right: -23px;
+}
+
+.pagination a {
+    padding: 5px;
+    border: 1px solid #ddd;
+    margin-right: 5px;
+}
+
+.pagination a:hover {
+    background-color: #4F6F52;
+}
+
+.pagination a.active {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Menyesuaikan warna garis berdasarkan mode gelap */
+@media (prefers-color-scheme: dark) {}
+
+table {
+    background-color: #D2E3C8;
+    /* warna background untuk dark mode */
+
+}
+
+.btn-container {
+    text-align: right;
+    margin-left: auto;
+    /* Posisikan ke kanan */
+}
+
+.search-container {
+    position: relative;
+    display: inline-block;
+}
+
+#searchBar {
+    width: 180px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    margin-right: -23px;
+}
+
+.search-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+    /* Menambahkan margin bawah sebesar 20px */
+}
+
+.search-container .clear-button {
+    position: absolute;
+    right: -25px;
+    /* Atur posisi tombol X */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    /* Warna latar belakang transparan */
+    color: red;
+    /* Warna teks merah */
+    border: none;
+    cursor: pointer;
+    outline: none;
+    display: none;
+    /* Sembunyikan tombol X secara default */
+    font-weight: bold;
+    /* Membuat huruf tebal */
+    font-size: 1.0em;
+    /* Mengatur ukuran huruf */
+}
+
+.row {
+    width: 100%;
+}
+
+#entries {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a.btn {
+    margin: -1px;
+    /* Margin antara tombol */
+}
+
+.btn-custom {
+    background-color: #4F6F52;
+    /* Warna latar belakang */
+    color: white;
+    /* Warna teks */
+}
+
+.btn-custom:hover {
+    background-color: #3b5740;
+    /* Warna latar belakang saat hover */
+}
+
+.btn.btn-previous {
+
+    color: #4F6F52;
+}
+
+.btn.btn-next {
+
+    color: #4F6F52;
+}
+
+h6 {
+    color: #4F6F52;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* Tombol "Previous" dan "Next" diatur agar responsif */
+@media screen and (max-width: 300px) {
+    .btn-container {
+        flex-direction: column;
+        /* Mengubah tata letak menjadi satu kolom saat layar kecil */
+    }
+}
+
+.back-button {
+    background-color: #4F6F52;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: -10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #3b5740;
+}
