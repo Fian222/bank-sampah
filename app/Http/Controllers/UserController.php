@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Child;
+
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -12,44 +13,34 @@ class UserController extends Controller
         return view("user/dashboard");
     }
 
-    // public function daftar_sampah(){
-    //     return view('lurah/daftar_sampah', [
-    //         "sampah" => Sampah::all()
-    //     ]);
-    // }
-
-    public function cari_sampah()
+    public function data_nasabah_user()
     {
-        return view('lurah/cari_sampah');
+        return view('user/data_nasabah_user');
     }
 
-    public function transaksi_jual()
+    public function data_sampah_user()
     {
-        return view('lurah/transaksi_jual');
+        return view('user/data_sampah_user');
     }
 
-    public function transaksi_beli()
-    {
-        return view('lurah/transaksi_beli');
+
+    public function transaksi_jual_user(){
+        return view('user/transaksi_jual_user');
     }
 
-    public function laporan_jual()
-    {
-        return view('lurah/laporan_jual');
+    public function transaksi_beli_user(){
+        return view('user/transaksi_beli_user');
     }
 
-    public function laporan_beli()
-    {
-        return view('lurah/laporan_beli');
+
+    public function laporan_jual_user(){
+        return view('user/laporan_jual_user');
     }
 
-    public function laporan_akhir()
-    {
-        return view('lurah/laporan_akhir');
+    public function laporan_beli_user(){
+        return view('user/laporan_beli_user');
     }
 
-    public function grafik_monitoring()
-    {
-        return view('lurah/grafik_monitoring');
+    public function ganti_password_user(){
+        return view('user/ganti_password_user');
     }
-}
