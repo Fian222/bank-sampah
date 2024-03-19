@@ -12,24 +12,24 @@ class SuperAdminController extends Controller
         return view("superadmin/dashboard");
     }
 
-    public function data_admin()
+    public function data_user()
     {
-        return view('superadmin/data_admin');
+        return view('superadmin/data_user');
     }
 
-    public function tambah_admin()
+    public function tambah_user()
     {
-        return view("superadmin/tambah_admin");
+        return view("superadmin/tambah_user");
     }
 
-    public function edit_admin()
+    public function edit_user()
     {
-        return view("superadmin/edit_admin");
+        return view("superadmin/edit_user");
     }
 
-    public function hapus_admin()
+    public function ganti_password()
     {
-        return view("superadmin/hapus_admin");
+        return view("superadmin/ganti_password");
     }
 
     public function data_nasabah()
@@ -47,11 +47,6 @@ class SuperAdminController extends Controller
         return view("superadmin/edit_nasabah");
     }
 
-    public function hapus_nasabah()
-    {
-        return view("superadmin/hapus_nasabah");
-    }
-
     public function data_sampah()
     {
         return view('superadmin/data_sampah');
@@ -67,15 +62,6 @@ class SuperAdminController extends Controller
         return view("superadmin/edit_sampah");
     }
 
-    public function hapus_sampah()
-    {
-        return view("superadmin/hapus_sampah");
-    }
-
-    public function cari_sampah(){
-        return view('superadmin/cari_sampah');
-    }
-
     public function transaksi_jual(){
         return view('superadmin/transaksi_jual');
     }
@@ -86,10 +72,6 @@ class SuperAdminController extends Controller
 
     public function edit_transaksi_jual(){
         return view('superadmin/edit_transaksi_jual');
-    }
-
-    public function hapus_transaksi_jual(){
-        return view('superadmin/hapus_transaksi_jual');
     }
 
     public function transaksi_beli(){
@@ -104,10 +86,6 @@ class SuperAdminController extends Controller
         return view('superadmin/edit_transaksi_beli');
     }
 
-    public function hapus_transaksi_beli(){
-        return view('superadmin/hapus_transaksi_beli');
-    }
-
     public function laporan_jual(){
         return view('superadmin/laporan_jual');
     }
@@ -120,7 +98,4 @@ class SuperAdminController extends Controller
         return view('superadmin/laporan_akhir');
     }
 
-    public function grafik_monitoring(){
-        return view('superadmin/grafik_monitoring');
-    }
 }

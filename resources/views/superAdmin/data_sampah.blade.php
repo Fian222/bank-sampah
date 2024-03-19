@@ -1,167 +1,91 @@
-@extends('app')
+@extends('layout.app')
 
 @section('content')
-
-<h2 class="active" style="font-size: 30px;">Data Sampah</h2>
+    <h2 style="font-size: 30px;">Data Sampah</h2>
     <br>
 
-    <style>
-        table {
-        border-collapse: collapse;
-        width: 100%;
-      }
+    <link rel="stylesheet" href="./assets/compiled/css/all.view.css">
+    <link rel="stylesheet" href="./assets/compiled/css/dataTables.bootstrap4.min.css">
 
-      th, td {
-        border: 1px solid; /* warna awal garis */
-        padding: 8px;
-      }
+    <div class="back-button-container" style="margin-bottom: 5px; margin-left: 1px;">
+        <a class="btn back-button" onclick="goBack()">
+            <i class="fa-solid fa-arrow-left" style="color: white;"></i>
+            <span style="color: white;">Back</span>
+        </a>
+    </div>
 
-      th {
-        text-align: left;
-      }
-
-      tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
-
-      .search-bar {
-        width: 200px;
-        padding: 5px;
-        margin-bottom: 10px;
-      }
-
-      .pagination {
-        text-align: center;
-      }
-
-      .pagination a {
-        padding: 5px;
-        border: 1px solid #ddd;
-        margin-right: 5px;
-      }
-
-      .pagination a:hover {
-        background-color: #ddd;
-      }
-
-      .pagination a.active {
-        background-color: #000;
-        color: #fff;
-      }
-
-      /* Menyesuaikan warna garis berdasarkan mode gelap */
-      @media (prefers-color-scheme: dark) {
-        table {
-          background-color: #D2E3C8; /* warna background untuk dark mode */
-        }
-
-        th, td {
-          border-color: #fff; /* warna garis untuk dark mode */
-        }
-      }
-        </style>
-
-          <style>
-
-      .btn-container {
-                  text-align: right;
-                  margin-left: auto; /* Posisikan ke kanan */
-              }
-              #search {
-          margin-bottom: 5px;
-          float: right;
-              }
-
-          #search input {
-          width: 300px;
-      }
-      .row {
-          width: 100%;
-      }
-
-          </style>
-
-      <div class="mb-3"></div>
-      <div class="row">
-      <div class="col">
-          <div class="card shadow">
-              <div class="card-body">
-
-                  <div class="row">
-                      <div class="d-flex justify-content-between">
-                        <!-- Bagian "Show Entries" di kiri -->
-                        <div>
-                          <label for="entries">Show Entries:</label>
-                          <select id="entries" onchange="changeEntries()">
-                            <option value="10">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                          </select>
+    <div class="mb-3"></div>
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="table_sampah" class="table table-bordered">
+                            <thead class="table-secondary">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Jenis Sampah</th>
+                                    <th>Satuan</th>
+                                    <th>Harga</th>
+                                    <th>Gambar</th>
+                                    <th>Deskripsi</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Kardus</td>
+                                    <td>KG</td>
+                                    <td>5000</td>
+                                    <td><img src="https://down-id.img.susercontent.com/file/d41d0ab1c03c710ae114912cf4297f74"width="60px"
+                                            height="60px"></td>
+                                    <td>Semua Jenis Kardus</td>
+                                    <td style="text-align: center;">
+                                        <a href="{{ route('edit_user') }}" class="btn btn-warning btn-sm"
+                                            style="color: white"> <i class="fas fa-edit"></i> </a>
+                                        <a type="submit" class="btn btn-danger btn-sm" onclick="return confirmDelete()"><i
+                                                class="fas fa-trash"></i> </a>
+                                    </td>
+                                </tr>
+                                <tr id="tableBody">
+                                    <td>2</td>
+                                    <td>Botol</td>
+                                    <td>KG</td>
+                                    <td>3000</td>
+                                    <td><img src="https://st4.depositphotos.com/1971587/25483/i/1600/depositphotos_254834222-stock-photo-new-unused-blue-empty-plastic.jpg"
+                                            width="60px" height="60px"></td>
+                                    <td>Botol Tanpa Tutup</td>
+                                    <td style="text-align: center;">
+                                        <a href="{{ route('edit_user') }}" class="btn btn-warning btn-sm"
+                                            style="color: white"> <i class="fas fa-edit"></i> </a>
+                                        <a type="submit" class="btn btn-danger btn-sm" onclick="return confirmDelete()"><i
+                                                class="fas fa-trash"></i> </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ route('tambah_user') }}" class="btn btn-custom">
+                                <i class="fa-solid fa-user-plus" style="color: white; margin-right: 5px;"></i>
+                                <span style="color: white;">Tambah</span>
+                            </a>
                         </div>
-                        <!-- Bagian "Search" di kanan -->
-                        <div>
-                          <label for="search">Search:</label>
-                          <input type="text" id="search" name="search" placeholder="Type your search query..." />
-                        </div>
-                      </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
 
-                  <div class="table-responsive">
-                      <table class="table table-bordered">
-                          <thead class="table-secondary">
-                              <tr>
-                                  <th>No</th>
-                                  <th>Jenis Sampah</th>
-                                  <th>Satuan</th>
-                                  <th>Harga</th>
-                                  <th>Gambar</th>
-                                  <th>Deskripsi</th>
-                                  <th>Aksi</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                                  <tr>
-                                      <td>1</td>
-                                      <td>Kardus</td>
-                                      <td>KG</td>
-                                      <td>5000</td>
-                                     <td><img src="https://down-id.img.susercontent.com/file/d41d0ab1c03c710ae114912cf4297f74"width="60px"height="60px"></td>
-                                      <td>Semua Jenis Kardus</td>
-                                      <td> <a href="#" class="btn btn-warning btn-sm"> <i class="fas fa-edit"></i> </a>
-                                          <a href="#" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i> </a>
-                                          </td>
-                                  </tr>
-                                  <tr>
-                                      <td>2</td>
-                                      <td>Botol</td>
-                                      <td>KG</td>
-                                      <td>3000</td>
-                                      <td><img src="https://st4.depositphotos.com/1971587/25483/i/1600/depositphotos_254834222-stock-photo-new-unused-blue-empty-plastic.jpg" width="60px" height="60px"></td>
-                                      <td>Botol Tanpa Tutup</td>
-                          <td> <a href="#" class="btn btn-warning btn-sm"> <i class="fas fa-edit"></i> </a>
-                          <a href="#" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i> </a>
-                          </td>
-                      </tr>
-                  </tbody>
-              </table>
-              <div class="row" >
-                  <div class="d-flex justify-content-between">
-                  <div>
-                  <a href="#">
-                  <button><i class="fa fa-plus" aria-hidden="true"></i>Tambah</button>
-                  </a>
-              </div>
-              <div>
-                  <div class="btn-container">
-                      <button class="btn btn-previous">Previous</button>
-                      <button><a class="paginate_button current" aria-controls="example" data-dt-idx="1" tabindex="0">1</a></button>
-                      <button class="btn btn-next">Next</button>
-                  </div>
-              </div>
-          </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      @endsection
+@section('script')
+    <script src="/assets/compiled/js/jquery.min.js"></script>
+    <script src="/assets/compiled/js/jquery.dataTables.min.js"></script>
+    <script src="/assets/compiled/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#table_sampah').DataTable();
+        });
+    </script>
+@endsection
