@@ -6,7 +6,51 @@
 <br>
 
   <style>
-  table {
+/* CSS untuk Tata Letak Responsif Mobile */
+
+/* Atur lebar maksimum untuk konten */
+.container {
+    max-width: 100%; /* Konten akan mengisi lebar layar penuh */
+    margin: 0 auto; /* Posisi tengah */
+    padding: 0 20px; /* Ruang padding di sisi kanan dan kiri */
+}
+
+/* Tata letak responsif untuk baris */
+.row {
+    display: flex; /* Mengubah tata letak menjadi flexbox */
+    flex-wrap: wrap; /* Baris akan menggulung ke baris baru saat tidak cukup ruang */
+    margin: 0 -10px; /* Ruang negatif untuk kompensasi padding kolom */
+}
+
+/* Atur lebar kolom pada layar kecil */
+.col {
+    flex: 0 0 100%; /* Setiap kolom akan menempati lebar 100% pada layar kecil */
+    padding: 0 10px; /* Ruang padding di sisi kanan dan kiri */
+}
+
+/* Atur ulang tata letak untuk mode mobile */
+@media (max-width: 576px) {
+    .row {
+        flex-direction: column; /* Menata elemen dalam satu kolom pada mode mobile */
+    }
+    
+    .col {
+        flex: 1 0 100%; /* Setiap kolom akan menempati lebar 100% pada mode mobile */
+        padding: 0; /* Menghapus padding untuk memaksimalkan ruang */
+    }
+
+    .search-bar {
+        order: -1; /* Memindahkan elemen "Search" ke atas */
+        margin-bottom: 10px; /* Memberikan ruang antara elemen */
+    }
+
+    .entries-container {
+        text-align: left; /* Atur ulang posisi "Show Entries" ke kiri */
+    }
+}
+
+
+table {
   border-collapse: collapse;
   width: 100%;
 }
@@ -49,20 +93,6 @@ tr:nth-child(even) {
   color: #fff;
 }
 
-/* Menyesuaikan warna garis berdasarkan mode gelap */
-@media (prefers-color-scheme: dark) {
-  table {
-    background-color: #D2E3C8; /* warna background untuk dark mode */
-  }
-
-  th, td {
-    border-color: #fff; /* warna garis untuk dark mode */
-  }
-}
-  </style>
-
-    <style>
-
 .btn-container {
             text-align: right;
             margin-left: auto; /* Posisikan ke kanan */
@@ -78,8 +108,7 @@ tr:nth-child(even) {
 .row {
     width: 100%;
 }
-
-    </style>
+  </style>
 
 <div class="mb-3"></div>
 <div class="row">
@@ -90,13 +119,13 @@ tr:nth-child(even) {
             <div class="row">
                 <div class="d-flex justify-content-between">
                   <!-- Bagian "Show Entries" di kiri -->
-                  <div>
+                  <div class="entries-container">
                     <label for="entries">Show Entries:</label>
                     <select id="entries" onchange="changeEntries()">
-                      <option value="10">10</option>
-                      <option value="25">25</option>
-                      <option value="50">50</option>
-                      <option value="100">100</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
                     </select>
                   </div>
                   <!-- Bagian "Search" di kanan -->

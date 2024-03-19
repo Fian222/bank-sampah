@@ -28,10 +28,10 @@
     <div id="app">
         <div id="sidebar">
             <div class="sidebar-wrapper active">
-    <div class="sidebar-header position-relative">
+    <div class="sidebar-header position-relative" style="height: 150px">
         <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-                <a href="index.html"><img src="./assets/compiled/svg/logo.svg" alt="Logo" srcset=""></a>
+                <a href="#"><img src="./assets/compiled/png/logo.png" alt="Logo" srcset="" style="height: 140px; width: auto;"></a>
             </div>
             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -71,7 +71,7 @@
             <li class="sidebar-title">Menu</li>
 
             <li
-                class="sidebar-item">
+                class="sidebar-item active">
                 <a href="/dashboard" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
@@ -156,6 +156,13 @@
                 </ul>
 
             </li>
+            <li
+                class="sidebar-item">
+                <a href="{{ route('logout') }}" class='sidebar-link'>
+                    <i class="bi bi-logout"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
 
 </div>
         </div>
@@ -196,6 +203,7 @@ footer {
 
     </div>
 </div>
+
 
     <script src="assets/static/js/components/dark.js"></script>
     <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
