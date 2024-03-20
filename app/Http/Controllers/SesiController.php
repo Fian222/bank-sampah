@@ -12,7 +12,7 @@ class SesiController extends Controller
     {
         return view('auth/login');
     }
-
+    //testing
     function login(Request $request)
     {
         $request->validate([
